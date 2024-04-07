@@ -23,17 +23,13 @@ body {
     object-fit: cover; 
 }
 
-.logo{
+.logo {
     width: 450px;
 }
 
 .popular {
-   
-
     margin-top: 15px;
 }
-
-
 
 .card-row {
     display: flex;
@@ -42,11 +38,11 @@ body {
     padding: 0;
 }
 
-
 .gtacard {
     width: calc(100% / 3);
     overflow: hidden;
     margin-top: 20px; 
+    position: relative; /* Set position to relative */
 }
 
 .gtacard img {
@@ -55,8 +51,17 @@ body {
     object-fit: cover;
 }
 
-.allcards{
+.text-container {
+    position: absolute; /* Set position to absolute */
+    bottom: 0; /* Position at the bottom */
+    left: 0; /* Position at the left */
+    right: 0; /* Position at the right */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    color: white; /* Text color */
+    padding: 10px; /* Padding around text */
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.allcards {
     margin-top: 15px;
-/* 
-  vgyvg */
 }

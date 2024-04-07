@@ -1,0 +1,44 @@
+[
+    {
+        "id":1,
+        "name":"Obey 10F",
+        "price":"$1,675,000",
+        "photo":"jsonfotos/id1d.jpg"
+        
+    },
+    {
+        "id":2,
+        "name":"Lampadati Corsita",
+        "price":"$1,795,000",
+        "photo":"jsonfotos/id2.webp"
+        
+    },
+    {
+        "id":3,
+        "name":"Pegassi Torero XO",
+        "price":"$2,890,000",
+        "photo":"jsonfotos/id3.webp"
+        
+    },
+    {
+        "id":4,
+        "name":"Coil Cyclone II",
+        "price":"$2,250,000",
+        "photo":"jsonfotos/id4.webp"
+        
+    },
+    {
+        "id":5,
+        "name":"Överflöd Entity MT",
+        "price":"$2,355,000",
+        "photo":"jsonfotos/id5.webp"
+        
+    },
+    {
+        "id":6,
+        "name":"Toundra Panthere",
+        "price":"$2,170,000",
+        "photo":"jsonfotos/id6.webp"
+        
+    } 
+]
