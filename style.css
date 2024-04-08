@@ -65,3 +65,33 @@ body {
 .allcards {
     margin-top: 15px;
 }
+
+.button-overlay {
+    position: relative;
+    display: inline-block;
+}
+
+.button-overlay img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.button-text {
+    position: absolute;
+    bottom: 60px; /* Adjust as needed */
+    left: 30px; /* Adjust as needed */
+    font-family: "Arial", sans-serif; /* Change font type */
+    border: 2px solid white; /* Add border */
+    color:white; /* Set text color to match border */
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    text-decoration: none;
+    z-index: 1; /* Ensure button text is above the image */
+}
+
+.button-text:hover {
+    transition: color 10s; /* Smooth color transition */
+    background-color: rgb(83, 83, 83);
+}
