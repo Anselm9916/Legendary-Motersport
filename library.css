@@ -79,7 +79,7 @@ body {
 }
 
 .sortprice {
-    background-color: #df0909;
+    background-color: #800303;
     border: none;
     color: white;
     padding: 10px 20px;
@@ -89,8 +89,10 @@ body {
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 5px;
-    width: 400px;
+    width: 1000px;
     height: 70px;
+
+
 }
 
 .sortprice:hover {
