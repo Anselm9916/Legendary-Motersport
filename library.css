@@ -1,7 +1,7 @@
 body {
     margin: 0;
     font-family: "Helvetica Neue", Arial, sans-serif;
-    
+
 }
 
 .top-bar {
@@ -9,26 +9,26 @@ body {
     padding: 12px 20px;
     display: flex;
     align-items: center;
-    justify-content: space-between; 
+    justify-content: space-between;
 }
 
 .top-bar-divider {
     border-bottom: 1px solid #ccc;
-    margin-bottom: 10px; 
+    margin-bottom: 10px;
 }
 
 .card-row {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between; 
-  
+    justify-content: space-between;
+
 }
 
 .gtacard {
-    width: calc(33.33% - 20px); 
+    width: calc(33.33% - 20px);
     overflow: hidden;
     margin: 10px;
-    position: relative; 
+    position: relative;
 }
 
 .gtacard img {
@@ -38,16 +38,61 @@ body {
 }
 
 .text-container {
-    position: absolute; 
-    bottom: 0; 
-    left: 0; 
-    right: 0; 
-    background-color: rgba(0, 0, 0, 0.5); 
-    color: white; 
-    padding: 10px; 
-    box-sizing: border-box; 
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    box-sizing: border-box;
 }
 
 .logo {
     width: 450px;
+}
+
+.button-bar {
+    background-color: #f2f2f2;
+    padding: 10px;
+    display: flex;
+}
+
+.button {
+    background-color: #df0909;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 1000px;
+    height: 70px;
+}
+
+.button:hover {
+    background-color: #a04545;
+}
+
+.sortprice {
+    background-color: #df0909;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 400px;
+    height: 70px;
+}
+
+.sortprice:hover {
+    background-color: #a04545;
 }

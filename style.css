@@ -43,6 +43,7 @@ body {
     overflow: hidden;
     margin-top: 20px; 
     position: relative; /* Set position to relative */
+   
 }
 
 .gtacard img {
@@ -52,18 +53,19 @@ body {
 }
 
 .text-container {
-    position: absolute; /* Set position to absolute */
-    bottom: 0; /* Position at the bottom */
-    left: 0; /* Position at the left */
-    right: 0; /* Position at the right */
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-    color: white; /* Text color */
-    padding: 10px; /* Padding around text */
-    box-sizing: border-box; /* Include padding in width calculation */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    box-sizing: border-box;
 }
 
 .allcards {
     margin-top: 15px;
+    
 }
 
 .button-overlay {
@@ -79,19 +81,32 @@ body {
 
 .button-text {
     position: absolute;
-    bottom: 60px; /* Adjust as needed */
-    left: 30px; /* Adjust as needed */
-    font-family: "Arial", sans-serif; /* Change font type */
-    border: 2px solid white; /* Add border */
-    color:white; /* Set text color to match border */
+    bottom: 60px;
+    left: 30px;
+    font-family: "Arial", sans-serif;
+    border: 2px solid white;
+    color:white;
     padding: 10px 20px;
     border-radius: 5px;
     font-size: 16px;
     text-decoration: none;
-    z-index: 1; /* Ensure button text is above the image */
+    z-index: 1; 
 }
 
 .button-text:hover {
-    transition: color 10s; /* Smooth color transition */
+    transition: color 10s;
     background-color: rgb(83, 83, 83);
+}
+
+
+.gtacard img {
+    transition: transform 0.3s ease;
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.gtacard:hover img {
+    transform: scale(1.2); /* Adjust the scale factor as needed */
+ cursor: pointer;
 }
