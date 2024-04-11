@@ -12,8 +12,8 @@
         "name": "Lampadati Corsita",
         "price": "$1,795,000",
         "photo": "jsonfotos/id2.webp",
-        "doors": "4",
-        "class": "Motorcycles"
+        "doors": "2",
+        "class": "featured"
     },
     {
         "id": 3,
@@ -21,27 +21,48 @@
         "price": "$2,890,000",
         "photo": "jsonfotos/id3.webp",
         "doors": "2",
-        "class": "special"
+        "class": "featured"
     },
     {
         "id": 4,
         "name": "Coil Cyclone II",
         "price": "$2,250,000",
         "photo": "jsonfotos/id4.webp",
-        "doors": "2"
+        "doors": "2",
+        "class": "featured"
     },
     {
         "id": 5,
         "name": "Överflöd Entity MT",
         "price": "$2,355,000",
         "photo": "jsonfotos/id5.webp",
-        "doors": "2"
+        "doors": "2",
+        "class": "featured"
     },
     {
         "id": 6,
         "name": "Toundra Panthere",
         "price": "$2,170,000",
         "photo": "jsonfotos/id6.webp",
-        "doors": "2"
+        "doors": "2",
+        "class": "featured"
+    },
+
+    {
+        "id": 7,
+        "name": "Classique Broadway",
+        "price": "$925,000",
+        "photo": "jsonfotos/id7.webp",
+        "doors": "2",
+        "class": "featured"
+    },
+
+    {
+        "id": 8,
+        "name": "Western Powersurge",
+        "price": "$1,605,000",
+        "photo": "jsonfotos/id8.webp",
+        "doors": "2",
+        "class": "Motorcycles"
     }
 ]

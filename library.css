@@ -20,7 +20,7 @@ body {
 .card-row {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+   
 
 }
 
@@ -29,6 +29,7 @@ body {
     overflow: hidden;
     margin: 10px;
     position: relative;
+    transition: transform 0.3s ease;
 }
 
 .gtacard img {
@@ -97,4 +98,8 @@ body {
 
 .sortprice:hover {
     background-color: #a04545;
+}
+
+.gtacard:hover {
+    transform: translateY(-5px);
 }
