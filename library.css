@@ -103,3 +103,7 @@ body {
 .gtacard:hover {
     transform: translateY(-5px);
 }
+.car-logo {
+    width: 1px;
+    height: auto;
+}

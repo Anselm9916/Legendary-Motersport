@@ -5,7 +5,9 @@
                             "price": "$1,675,000",
                             "photo": "jsonfotos/id1d.jpg",
                             "doors": "2",
-                            "class": "featured"
+                            "class": "featured",
+                            "logo": "jsonlogos/id1.webp"
+
                         },
                         {
                             "id": 2,
@@ -13,7 +15,8 @@
                             "price": "$1,795,000",
                             "photo": "jsonfotos/id2.webp",
                             "doors": "2",
-                            "class": "featured"
+                            "class": "featured",
+                            "logo": "jsonlogos/id1.webp"
                         },
                         {
                             "id": 3,

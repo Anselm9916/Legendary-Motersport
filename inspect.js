@@ -21,6 +21,23 @@ document.addEventListener('DOMContentLoaded', function () {
             document.getElementById('car-price').textContent = car.price;
             document.getElementById('car-doors').textContent = `Doors: ${car.doors}`;
             document.getElementById('car-class').textContent = `Class: ${car.class}`;
+
+            const bookmarkButton = document.getElementById('car-price-button');
+            bookmarkButton.textContent = `Bookmark ${car.name}`;
+            bookmarkButton.addEventListener('click', function() {
+                let bookmarkedCars = JSON.parse(localStorage.getItem('bookmarkedCars')) || [];
+                bookmarkedCars.push(car);
+                localStorage.setItem('bookmarkedCars', JSON.stringify(bookmarkedCars));
+            });
+
+            // Check if car has logo and display it
+            if (car.logo) {
+                const carLogo = document.createElement('img');
+                carLogo.src = car.logo;
+                carLogo.alt = 'Car Logo';
+                carLogo.classList.add('car-logo');
+                document.querySelector('.left-card').prepend(carLogo);
+            }
         })
         .catch(error => console.error('Error fetching data:', error));
 });
