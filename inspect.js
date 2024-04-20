@@ -28,6 +28,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 let bookmarkedCars = JSON.parse(localStorage.getItem('bookmarkedCars')) || [];
                 bookmarkedCars.push(car);
                 localStorage.setItem('bookmarkedCars', JSON.stringify(bookmarkedCars));
+                const bolletjewinkelwagen = document.createElement('span');
+                bolletjewinkelwagen.classList.add('badge');
+                bolletjewinkelwagen.textContent = bookmarkedCars.length;
+                const bolletjecontainer = document.getElementsByClassName('topright');
+                bolletjecontainer[0].appendChild(bolletjewinkelwagen);
             });
 
             // Check if car has logo and display it
