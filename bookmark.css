@@ -62,3 +62,34 @@ body {
     font-size: 16px;
     margin-bottom: 8px;
 }
+
+#buy-button {
+    display: flex;
+    justify-content: center; 
+    background-color: rgb(231, 3, 3);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+
+/* Style for the total price and number of cars */
+#pricecar1,
+#pricecar2 {
+    display: flex;
+    justify-content: center;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.but1 {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}

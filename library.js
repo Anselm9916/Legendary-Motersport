@@ -20,7 +20,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 nameText.textContent = car.name;
 
                 const priceText = document.createElement('p');
-                priceText.textContent = car.price;
+                // Add a dollar sign ($) in front of the price
+                priceText.textContent = `$${car.price}`;
 
                 textContainer.appendChild(nameText);
                 textContainer.appendChild(priceText);

@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             document.getElementById('car-name').textContent = car.name;
             document.getElementById('car-photo').src = car.photo;
-            document.getElementById('car-price').textContent = car.price;
+            document.getElementById('car-price').textContent = `$${car.price}`;
             document.getElementById('car-doors').textContent = `Doors: ${car.doors}`;
             document.getElementById('car-class').textContent = `Class: ${car.class}`;
 
@@ -28,21 +28,21 @@ document.addEventListener('DOMContentLoaded', function () {
                 let bookmarkedCars = JSON.parse(localStorage.getItem('bookmarkedCars')) || [];
                 bookmarkedCars.push(car);
                 localStorage.setItem('bookmarkedCars', JSON.stringify(bookmarkedCars));
-                const bolletjewinkelwagen = document.createElement('span');
-                bolletjewinkelwagen.classList.add('badge');
+                const bolletjewinkelwagen = document.getElementById('topright');
+                if (bookmarkedCars.length > 0) {
+                    bolletjewinkelwagen.classList.add('badge');
+                }
                 bolletjewinkelwagen.textContent = bookmarkedCars.length;
-                const bolletjecontainer = document.getElementsByClassName('topright');
-                bolletjecontainer[0].appendChild(bolletjewinkelwagen);
+
             });
 
             // Check if car has logo and display it
-            if (car.logo) {
-                const carLogo = document.createElement('img');
-                carLogo.src = car.logo;
-                carLogo.alt = 'Car Logo';
-                carLogo.classList.add('car-logo');
+            if (car.logo) {dg
                 document.querySelector('.left-card').prepend(carLogo);
             }
         })
         .catch(error => console.error('Error fetching data:', error));
+
+        
 });
+dg
