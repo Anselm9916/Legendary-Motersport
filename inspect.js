@@ -38,18 +38,24 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .catch(error => console.error('Error fetching data:', error));
 
-    // Function to update the badge count based on the number of bookmarked cars
-    function updateBookmarkBadge() {
-        const bookmarkedCars = JSON.parse(localStorage.getItem('bookmarkedCars')) || [];
-        const bolletjewinkelwagen = document.getElementById('topright');
-        if (bookmarkedCars.length > 0) {
-            bolletjewinkelwagen.classList.add('badge');
-        } else {
-            bolletjewinkelwagen.classList.remove('badge');
+        function updateBookmarkBadge() {
+            const bookmarkedCars = JSON.parse(localStorage.getItem('bookmarkedCars')) || [];
+            const bolletjewinkelwagen = document.querySelector('.topright');
+            let redDot = bolletjewinkelwagen.querySelector('.red-dot'); // Use let instead of const
+            if (!redDot) {
+                const redDotElement = document.createElement('div');
+                redDotElement.classList.add('red-dot');
+                bolletjewinkelwagen.appendChild(redDotElement);
+                redDot = redDotElement; // Update the redDot variable
+            }
+            if (bookmarkedCars.length > 0) {
+                redDot.textContent = bookmarkedCars.length > 99 ? '99+' : bookmarkedCars.length;
+                redDot.style.display = 'block';
+            } else {
+                redDot.style.display = 'none';
+            }
         }
-        bolletjewinkelwagen.textContent = bookmarkedCars.length;
-    }
-
-    // Call updateBookmarkBadge initially to ensure badge count is updated on page load
-    updateBookmarkBadge();
+    
+        // Call updateBookmarkBadge initially to ensure badge count is updated on page load
+        updateBookmarkBadge();
 });
