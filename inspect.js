@@ -28,21 +28,28 @@ document.addEventListener('DOMContentLoaded', function () {
                 let bookmarkedCars = JSON.parse(localStorage.getItem('bookmarkedCars')) || [];
                 bookmarkedCars.push(car);
                 localStorage.setItem('bookmarkedCars', JSON.stringify(bookmarkedCars));
-                const bolletjewinkelwagen = document.getElementById('topright');
-                if (bookmarkedCars.length > 0) {
-                    bolletjewinkelwagen.classList.add('badge');
-                }
-                bolletjewinkelwagen.textContent = bookmarkedCars.length;
-
+                updateBookmarkBadge(); // Update the badge count after bookmarking
             });
 
             // Check if car has logo and display it
-            if (car.logo) {dg
+            if (car.logo) {
                 document.querySelector('.left-card').prepend(carLogo);
             }
         })
         .catch(error => console.error('Error fetching data:', error));
 
-        
+    // Function to update the badge count based on the number of bookmarked cars
+    function updateBookmarkBadge() {
+        const bookmarkedCars = JSON.parse(localStorage.getItem('bookmarkedCars')) || [];
+        const bolletjewinkelwagen = document.getElementById('topright');
+        if (bookmarkedCars.length > 0) {
+            bolletjewinkelwagen.classList.add('badge');
+        } else {
+            bolletjewinkelwagen.classList.remove('badge');
+        }
+        bolletjewinkelwagen.textContent = bookmarkedCars.length;
+    }
+
+    // Call updateBookmarkBadge initially to ensure badge count is updated on page load
+    updateBookmarkBadge();
 });
-dg

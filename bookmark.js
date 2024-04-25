@@ -92,4 +92,12 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     displayBookmarkedCars();
+    function clearBookmarks() {
+        localStorage.removeItem('bookmarkedCars');
+        displayBookmarkedCars();
+        updateBookmarkCount(0);
+    }
+
+    const buyButton = document.getElementById('buy-button');
+    buyButton.addEventListener('click', clearBookmarks);
 });

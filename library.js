@@ -86,8 +86,22 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+     function updateBookmarkBadge() {
+        const bookmarkedCars = JSON.parse(localStorage.getItem('bookmarkedCars')) || [];
+        const bolletjewinkelwagen = document.getElementById('topright');
+        if (bookmarkedCars.length > 0) {
+            bolletjewinkelwagen.classList.add('badge');
+        } else {
+            bolletjewinkelwagen.classList.remove('badge');
+        }
+        bolletjewinkelwagen.textContent = bookmarkedCars.length;
+    }
+
+    // Call updateBookmarkBadge initially to ensure badge count is updated
+    updateBookmarkBadge();
+
     document.querySelector('.sortprice').addEventListener('click', () => {
-        carsData.sort((a, b) => parseFloat(a.price.replace(/[^0-9.-]+/g, '')) - parseFloat(b.price.replace(/[^0-9.-]+/g, '')));
+        carsData.sort((a, b) => parseFloat(a.price.replace(/[^0-9.]+/g, '')) - parseFloat(b.price.replace(/[^0-9.]+/g, '')));
         renderCards(carsData);
     });
 });
