@@ -1,7 +1,6 @@
 body {
     margin: 0;
     font-family: "Helvetica Neue", Arial, sans-serif;
-
 }
 
 .top-bar {
@@ -78,7 +77,6 @@ body {
     border-radius: 5px;
 }
 
-
 /* Style for the total price and number of cars */
 #pricecar1,
 #pricecar2 {
@@ -92,4 +90,17 @@ body {
     display: flex;
     justify-content: center;
     margin-top: 10px;
+}
+
+.red-dot {
+    background-color: red;
+    color: white;
+    padding: 2px 6px;
+    text-align: center;
+    border-radius: 100%;
+    z-index: 2;
+    position: absolute;
+    right: 6px;
+    top: 18px;
+    display: none; /* Initially hide the red dot */
 }

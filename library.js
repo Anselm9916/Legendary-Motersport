@@ -86,18 +86,25 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-     function updateBookmarkBadge() {
+    function updateBookmarkBadge() {
         const bookmarkedCars = JSON.parse(localStorage.getItem('bookmarkedCars')) || [];
-        const bolletjewinkelwagen = document.getElementById('topright');
-        if (bookmarkedCars.length > 0) {
-            bolletjewinkelwagen.classList.add('badge');
-        } else {
-            bolletjewinkelwagen.classList.remove('badge');
+        const bolletjewinkelwagen = document.querySelector('.topright');
+        let redDot = bolletjewinkelwagen.querySelector('.red-dot'); // Use let instead of const
+        if (!redDot) {
+            const redDotElement = document.createElement('div');
+            redDotElement.classList.add('red-dot');
+            bolletjewinkelwagen.appendChild(redDotElement);
+            redDot = redDotElement; // Update the redDot variable
         }
-        bolletjewinkelwagen.textContent = bookmarkedCars.length;
+        if (bookmarkedCars.length > 0) {
+            redDot.textContent = bookmarkedCars.length > 99 ? '99+' : bookmarkedCars.length;
+            redDot.style.display = 'block';
+        } else {
+            redDot.style.display = 'none';
+        }
     }
 
-    // Call updateBookmarkBadge initially to ensure badge count is updated
+    // Call updateBookmarkBadge initially to ensure badge count is updated on page load
     updateBookmarkBadge();
 
     document.querySelector('.sortprice').addEventListener('click', () => {

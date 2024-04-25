@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 bookmarkedCars.splice(clickedIndex, 1);
                 localStorage.setItem('bookmarkedCars', JSON.stringify(bookmarkedCars));
                 displayBookmarkedCars();
-                updateBookmarkCount(bookmarkedCars.length);
+                updateBookmarkBadge(); // Update badge count after removing a car
             });
             carInfo.appendChild(removeButton);
 
@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
         updateTotalPrice(totalPrice);
         updateNumberOfCars(numberOfCars);
         // Update the count on the bookmark logo
-        updateBookmarkCount(numberOfCars);
+        updateBookmarkBadge();
     }
 
     function updateTotalPrice(price) {
@@ -77,25 +77,32 @@ document.addEventListener('DOMContentLoaded', function () {
         numberOfCarsElement.textContent = `Number of Cars: ${count}`;
     }
 
-    function updateBookmarkCount(count) {
-        // Create a red dot element to display the count
-        const redDot = document.createElement('div');
-        redDot.classList.add('red-dot');
-        redDot.textContent = count > 9 ? '9+' : count;
-
-        const existingRedDot = document.querySelector('.red-dot');
-        if (existingRedDot) {
-            existingRedDot.remove();
+    function updateBookmarkBadge() {
+        const bookmarkedCars = JSON.parse(localStorage.getItem('bookmarkedCars')) || [];
+        const bolletjewinkelwagen = document.querySelector('.topright');
+        let redDot = bolletjewinkelwagen.querySelector('.red-dot'); // Use let instead of const
+        if (!redDot) {
+            const redDotElement = document.createElement('div');
+            redDotElement.classList.add('red-dot');
+            bolletjewinkelwagen.appendChild(redDotElement);
+            redDot = redDotElement; // Update the redDot variable
         }
-
-        bookmarkLogo.appendChild(redDot);
+        if (bookmarkedCars.length > 0) {
+            redDot.textContent = bookmarkedCars.length > 99 ? '99+' : bookmarkedCars.length;
+            redDot.style.display = 'block';
+        } else {
+            redDot.style.display = 'none';
+        }
     }
+
+    // Call updateBookmarkBadge initially to ensure badge count is updated on page load
+    updateBookmarkBadge();
 
     displayBookmarkedCars();
     function clearBookmarks() {
         localStorage.removeItem('bookmarkedCars');
         displayBookmarkedCars();
-        updateBookmarkCount(0);
+        updateBookmarkBadge();
     }
 
     const buyButton = document.getElementById('buy-button');
