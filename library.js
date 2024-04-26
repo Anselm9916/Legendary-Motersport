@@ -20,7 +20,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 nameText.textContent = car.name;
 
                 const priceText = document.createElement('p');
-                                                                                            
                 priceText.textContent = `$${car.price}`;
 
                 textContainer.appendChild(nameText);
@@ -57,10 +56,6 @@ document.addEventListener('DOMContentLoaded', function () {
     } else {
         renderCards(carsData);
     }
-
-    
-});
-
 
     const buttons = document.querySelectorAll('.button');
     buttons.forEach((button, index) => {
@@ -119,3 +114,4 @@ document.addEventListener('DOMContentLoaded', function () {
         carsData.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
         renderCards(carsData);
     }); 
+});
