@@ -107,8 +107,14 @@ document.addEventListener('DOMContentLoaded', function () {
     // Call updateBookmarkBadge initially to ensure badge count is updated on page load
     updateBookmarkBadge();
 
-    document.querySelector('.sortprice').addEventListener('click', () => {
-        carsData.sort((a, b) => parseFloat(a.price.replace(/[^0-9.]+/g, '')) - parseFloat(b.price.replace(/[^0-9.]+/g, '')));
+    document.getElementById('lowToHighBtn').addEventListener('click', () => {
+        carsData.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
+        renderCards(carsData);
+    });
+
+    // Event listener for sorting high to low
+    document.getElementById('highToLowBtn').addEventListener('click', () => {
+        carsData.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
         renderCards(carsData);
     });
 });

@@ -71,7 +71,7 @@ body {
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 5px;
-    width: 1000px;
+    width: 350px;
     height: 70px;
 }
 
@@ -79,22 +79,6 @@ body {
     background-color: #a04545;
 }
 
-.sortprice {
-    background-color: #800303;
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 5px;
-    width: 1000px;
-    height: 70px;
-
-
-}
 
 .sortprice:hover {
     background-color: #a04545;
@@ -120,3 +104,54 @@ body {
     top: 18px;
     display: none; /* Initially hide the red dot */
 }
+
+/* Your existing CSS styles */
+
+/* Dropdown button styles */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    background-color: #830303;
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content button {
+      background-color: #830303;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 350px;
+    height: 70px;
+}
+
+.dropdown-content button:hover {
+    background-color: #a04545;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown .dropbtn {
+    background-color: #830303;
+
+
+
+}
+/* End of your existing CSS styles */
+

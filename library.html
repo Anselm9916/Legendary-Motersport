@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library</title>
     <link rel="stylesheet" href="library.css">
-    <script src="library.js"></script>
+    <script src="library.js" defer></script>
 </head>
 
 <body>
@@ -20,12 +20,11 @@
             </a>
         </div>
         <div class="topright">
-         <a href="bookmark.html">  <img src="fotos/bookmark-regular-24.png" alt="bookmark"></a> 
+            <a href="bookmark.html"><img src="fotos/bookmark-regular-24.png" alt="bookmark"></a>
         </div>
     </div>
 
     <hr class="top-bar-divider">
-
 
     <div class="button-bar">
         <button class="button">Show all</button>
@@ -34,11 +33,17 @@
         <button class="button">4 Door</button>
         <button class="button">Motorcycles</button>
         <button class="button">Special</button>
-        <button class="sortprice button">Sort By Price</button>
+        <div class="dropdown">
+           <div><button class="button dropbtn">Sort By Price</button></div> 
+            <div class="dropdown-content">
+                <button id="lowToHighBtn" class="button">Low to High</button>
+                <button id="highToLowBtn" class="button">High to Low</button>
+            </div>
+        </div>
     </div>
 
     <div class="card-row" id="allCards"></div>
-    
+
 </body>
 
 </html>
