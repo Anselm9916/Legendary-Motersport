@@ -1,68 +1,76 @@
-                    [
-                        {
-                            "id": 1,
-                            "name": "Obey 10F",
-                            "price": 1675000,
-                            "photo": "jsonfotos/id1d.jpg",
-                            "doors": "2",
-                            "class": "featured",
-                            "logo": "jsonlogos/id1.webp"
-                        },
-                        {
-                            "id": 2,
-                            "name": "Lampadati Corsita",
-                            "price": 1795000,
-                            "photo": "jsonfotos/id2.webp",
-                            "doors": "2",
-                            "class": "featured",
-                            "logo": "jsonlogos/id1.webp"
-                        },
-                        {
-                            "id": 3,
-                            "name": "Pegassi Torero XO",
-                            "price": 2890000,
-                            "photo": "jsonfotos/id3.webp",
-                            "doors": "2",
-                            "class": "featured"
-                        },
-                        {
-                            "id": 4,
-                            "name": "Coil Cyclone II",
-                            "price": 2250000,
-                            "photo": "jsonfotos/id4.webp",
-                            "doors": "2",
-                            "class": "featured"
-                        },
-                        {
-                            "id": 5,
-                            "name": "Överflöd Entity MT",
-                            "price": 2355000,
-                            "photo": "jsonfotos/id5.webp",
-                            "doors": "2",
-                            "class": "featured"
-                        },
-                        {
-                            "id": 6,
-                            "name": "Toundra Panthere",
-                            "price": 2170000,
-                            "photo": "jsonfotos/id6.webp",
-                            "doors": "2",
-                            "class": "featured"
-                        },
-                        {
-                            "id": 7,
-                            "name": "Classique Broadway",
-                            "price": 925000,
-                            "photo": "jsonfotos/id7.webp",
-                            "doors": "2",
-                            "class": "featured"
-                        },
-                        {
-                            "id": 8,
-                            "name": "Western Powersurge",
-                            "price": 1605000,
-                            "photo": "jsonfotos/id8.webp",
-                            "doors": "1",
-                            "class": "Motorcycles"
-                        }
-                    ]
+[
+    {
+        "id": 1,
+        "name": "Obey 10F",
+        "price": 1675000,
+        "photo": "jsonfotos/id1d.jpg",
+        "doors": "2",
+        "class": "featured",
+        "logo": "jsonlogos/id1.webp",
+        "disabled": false
+    },
+    {
+        "id": 2,
+        "name": "Lampadati Corsita",
+        "price": 1795000,
+        "photo": "jsonfotos/id2.webp",
+        "doors": "2",
+        "class": "featured",
+        "logo": "jsonlogos/id1.webp",
+        "disabled": false
+    },
+    {
+        "id": 3,
+        "name": "Pegassi Torero XO",
+        "price": 2890000,
+        "photo": "jsonfotos/id3.webp",
+        "doors": "2",
+        "class": "featured",
+        "disabled": false
+    },
+    {
+        "id": 4,
+        "name": "Coil Cyclone II",
+        "price": 2250000,
+        "photo": "jsonfotos/id4.webp",
+        "doors": "2",
+        "class": "featured",
+        "disabled": false
+    },
+    {
+        "id": 5,
+        "name": "Överflöd Entity MT",
+        "price": 2355000,
+        "photo": "jsonfotos/id5.webp",
+        "doors": "2",
+        "class": "featured",
+        "disabled": false
+    },
+    {
+        "id": 6,
+        "name": "Toundra Panthere",
+        "price": 2170000,
+        "photo": "jsonfotos/id6.webp",
+        "doors": "2",
+        "class": "featured",
+        "disabled": false
+    },
+    {
+        "id": 7,
+        "name": "Classique Broadway",
+        "price": 925000,
+        "photo": "jsonfotos/id7.webp",
+        "doors": "2",
+        "class": "featured",
+        "disabled": false
+    },
+    {
+        "id": 8,
+        "name": "Western Powersurge",
+        "price": 1605000,
+        "photo": "jsonfotos/id8.webp",
+        "doors": "1",
+        "class": "Motorcycles",
+        "disabled": false
+    }
+]

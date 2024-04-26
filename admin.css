@@ -62,18 +62,17 @@ body {
     margin-bottom: 8px;
 }
 
-.edit-button {
-    background-color: red;
-    color: white;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
+
+.edit-button:hover{
+    background-color: rgb(161, 9, 9);
+    
 }
 
 .dropdown-content {
     display: none;
     position: absolute;
+    left: 230px;
+    bottom: 0px;
     background-color: #f1f1f1;
     min-width: 160px;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
@@ -92,4 +91,30 @@ body {
 
 .show {
     display: block;
+}
+
+.enable-disable-button {
+   
+    background-color: red;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.enable-disable-button:hover {
+    
+    background-color: rgb(161, 9, 9);
+}
+
+.edit-button {
+    
+    background-color: red;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 2px;
 }

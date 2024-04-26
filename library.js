@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const allCardsContainer = document.getElementById('allCards');
         allCardsContainer.innerHTML = '';
         data.forEach(car => {
-            if (car.name && car.price && car.photo) {
+            if (car.name && car.price && car.photo && !car.disabled) {
                 const card = document.createElement('div');
                 card.classList.add('gtacard');
 
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 nameText.textContent = car.name;
 
                 const priceText = document.createElement('p');
-                // Add a dollar sign ($) in front of the price
+                                                                                            
                 priceText.textContent = `$${car.price}`;
 
                 textContainer.appendChild(nameText);
@@ -58,6 +58,10 @@ document.addEventListener('DOMContentLoaded', function () {
         renderCards(carsData);
     }
 
+    
+});
+
+
     const buttons = document.querySelectorAll('.button');
     buttons.forEach((button, index) => {
         button.addEventListener('click', () => {
@@ -89,12 +93,12 @@ document.addEventListener('DOMContentLoaded', function () {
     function updateBookmarkBadge() {
         const bookmarkedCars = JSON.parse(localStorage.getItem('bookmarkedCars')) || [];
         const bolletjewinkelwagen = document.querySelector('.topright');
-        let redDot = bolletjewinkelwagen.querySelector('.red-dot'); // Use let instead of const
+        let redDot = bolletjewinkelwagen.querySelector('.red-dot');
         if (!redDot) {
             const redDotElement = document.createElement('div');
             redDotElement.classList.add('red-dot');
             bolletjewinkelwagen.appendChild(redDotElement);
-            redDot = redDotElement; // Update the redDot variable
+            redDot = redDotElement;
         }
         if (bookmarkedCars.length > 0) {
             redDot.textContent = bookmarkedCars.length > 99 ? '99+' : bookmarkedCars.length;
@@ -104,7 +108,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Call updateBookmarkBadge initially to ensure badge count is updated on page load
     updateBookmarkBadge();
 
     document.getElementById('lowToHighBtn').addEventListener('click', () => {
@@ -112,9 +115,7 @@ document.addEventListener('DOMContentLoaded', function () {
         renderCards(carsData);
     });
 
-    // Event listener for sorting high to low
     document.getElementById('highToLowBtn').addEventListener('click', () => {
         carsData.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
         renderCards(carsData);
-    });
-});
+    }); 

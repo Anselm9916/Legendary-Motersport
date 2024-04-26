@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const carsData = JSON.parse(localStorage.getItem('carsData'));
+    let carsData = JSON.parse(localStorage.getItem('carsData')) || []; // Added null check
 
-    function renderCarsData(data) {
+    function renderCarsData() { // Removed the data parameter
         const carDetailsContainer = document.querySelector('.car-details-container');
         carDetailsContainer.innerHTML = '';
 
-        data.forEach(car => {
+        carsData.forEach(car => { // Changed data to carsData
             const carCard = document.createElement('div');
             carCard.classList.add('car-card');
 
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 optionLink.addEventListener('click', () => {
                     const newValue = prompt(`Enter new value for ${option}:`);
                     if (newValue !== null && newValue.trim() !== '') {
-                        // Update the corresponding property in the car object
+                    
                         if (option === 'Name') {
                             car.name = newValue;
                         } else if (option === 'Price') {
@@ -59,13 +59,22 @@ document.addEventListener('DOMContentLoaded', function () {
                         } else if (option === 'Class') {
                             car.class = newValue;
                         }
-                        // Update the local storage
-                        localStorage.setItem('carsData', JSON.stringify(data));
-                        // Re-render the cars data
-                        renderCarsData(data);
+                    
+                        localStorage.setItem('carsData', JSON.stringify(carsData));
+                        
+                        renderCarsData();
                     }
                 });
                 dropdownContent.appendChild(optionLink);
+            });
+
+            const enableDisableButton = document.createElement('button');
+            enableDisableButton.textContent = car.disabled ? 'Enable' : 'Disable';
+            enableDisableButton.classList.add('enable-disable-button');
+            enableDisableButton.addEventListener('click', () => {
+                car.disabled = !car.disabled; 
+                enableDisableButton.textContent = car.disabled ? 'Enable' : 'Disable';
+                localStorage.setItem('carsData', JSON.stringify(carsData));
             });
 
             carInfo.appendChild(carName);
@@ -74,6 +83,7 @@ document.addEventListener('DOMContentLoaded', function () {
             carInfo.appendChild(carClass);
             carInfo.appendChild(editButton);
             carInfo.appendChild(dropdownContent);
+            carInfo.appendChild(enableDisableButton);
 
             carCard.appendChild(carPhoto);
             carCard.appendChild(carInfo);
@@ -82,8 +92,8 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    if (carsData) {
-        renderCarsData(carsData);
+    if (carsData.length > 0) { 
+        renderCarsData();
     } else {
         console.error('No cars data found in local storage.');
     }
