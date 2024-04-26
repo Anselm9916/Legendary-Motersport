@@ -1,7 +1,6 @@
 body {
     margin: 0;
     font-family: "Helvetica Neue", Arial, sans-serif;
-
 }
 
 .top-bar {
@@ -20,7 +19,6 @@ body {
 .logo {
     width: 450px;
 }
-
 
 .gtacard img {
     width: 100%;
@@ -46,6 +44,7 @@ body {
 
 .car-info {
     flex-grow: 1;
+    position: relative; /* Position relative for absolute positioning of dropdown content */
 }
 
 .car-name {
@@ -61,4 +60,36 @@ body {
 .car-doors, .car-class {
     font-size: 16px;
     margin-bottom: 8px;
+}
+
+.edit-button {
+    background-color: red;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.show {
+    display: block;
 }
