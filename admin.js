@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', function () {
-    let carsData = JSON.parse(localStorage.getItem('carsData')) || []; // Added null check
+    let carsData = JSON.parse(localStorage.getItem('carsData')) || [];
 
-    function renderCarsData() { // Removed the data parameter
+    function renderCarsData() {
         const carDetailsContainer = document.querySelector('.car-details-container');
         carDetailsContainer.innerHTML = '';
 
-        carsData.forEach(car => { // Changed data to carsData
+        carsData.forEach(car => {
             const carCard = document.createElement('div');
             carCard.classList.add('car-card');
 
@@ -49,7 +49,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 optionLink.addEventListener('click', () => {
                     const newValue = prompt(`Enter new value for ${option}:`);
                     if (newValue !== null && newValue.trim() !== '') {
-                    
                         if (option === 'Name') {
                             car.name = newValue;
                         } else if (option === 'Price') {
@@ -59,9 +58,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         } else if (option === 'Class') {
                             car.class = newValue;
                         }
-                    
                         localStorage.setItem('carsData', JSON.stringify(carsData));
-                        
                         renderCarsData();
                     }
                 });
@@ -72,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function () {
             enableDisableButton.textContent = car.disabled ? 'Enable' : 'Disable';
             enableDisableButton.classList.add('enable-disable-button');
             enableDisableButton.addEventListener('click', () => {
-                car.disabled = !car.disabled; 
+                car.disabled = !car.disabled;
                 enableDisableButton.textContent = car.disabled ? 'Enable' : 'Disable';
                 localStorage.setItem('carsData', JSON.stringify(carsData));
             });
@@ -92,7 +89,17 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    if (carsData.length > 0) { 
+    function restoreAll() {
+        localStorage.removeItem("carsData"); // Remove the carsData from local storage
+        renderCarsData(); // Render cars data after clearing local storage
+    }
+
+    // Add event listener to the Restore All button
+    const restoreAllButton = document.getElementById('restore-all-button');
+    restoreAllButton.addEventListener('click', restoreAll);
+
+    // Render cars data
+    if (carsData.length > 0) {
         renderCarsData();
     } else {
         console.error('No cars data found in local storage.');
