@@ -89,16 +89,39 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    function restoreAll() {
-        localStorage.removeItem("carsData"); // Remove the carsData from local storage
-        renderCarsData(); // Render cars data after clearing local storage
-    }
+   function restoreAll() {
 
-    // Add event listener to the Restore All button
+    localStorage.removeItem("carsData");
+
+    
+    fetch('gta.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Failed to fetch data');
+            }
+            return response.json();
+        })
+        .then(data => {
+            
+            localStorage.setItem("carsData", JSON.stringify(data));
+            
+    
+            renderCarsData();
+
+            
+            location.reload();
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+        });
+}
+
+
+    
     const restoreAllButton = document.getElementById('restore-all-button');
     restoreAllButton.addEventListener('click', restoreAll);
 
-    // Render cars data
+    
     if (carsData.length > 0) {
         renderCarsData();
     } else {
