@@ -89,42 +89,49 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-   function restoreAll() {
+    function restoreAll() {
+        localStorage.removeItem("carsData");
 
-    localStorage.removeItem("carsData");
+        fetch('gta.json')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to fetch data');
+                }
+                return response.json();
+            })
+            .then(newData => {
+                let existingData = JSON.parse(localStorage.getItem('carsData')) || [];
 
-    
-    fetch('gta.json')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Failed to fetch data');
-            }
-            return response.json();
-        })
-        .then(data => {
-            
-            localStorage.setItem("carsData", JSON.stringify(data));
-            
-    
-            renderCarsData();
+                existingData = existingData.concat(newData);
 
-            
-            location.reload();
-        })
-        .catch(error => {
-            console.error('Error fetching data:', error);
-        });
-}
+                // Store the updated data back into local storage
+                localStorage.setItem("carsData", JSON.stringify(existingData));
 
+                // Render the updated data
+                renderCarsData();
 
-    
+                // Reload the page
+                location.reload();
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            });
+    }
+
     const restoreAllButton = document.getElementById('restore-all-button');
     restoreAllButton.addEventListener('click', restoreAll);
 
-    
     if (carsData.length > 0) {
         renderCarsData();
     } else {
         console.error('No cars data found in local storage.');
     }
+
+    // Add a storage event listener to update the carsData when it changes
+    window.addEventListener('storage', function (event) {
+        if (event.key === 'carsData') {
+            carsData = JSON.parse(localStorage.getItem('carsData'));
+            renderCarsData();
+        }
+    });
 });

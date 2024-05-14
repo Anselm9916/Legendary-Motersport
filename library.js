@@ -1,45 +1,46 @@
+function renderCards(data) {
+    const allCardsContainer = document.getElementById('allCards');
+    allCardsContainer.innerHTML = '';
+    data.forEach(car => {
+        if (car.name && car.price && car.photo && !car.disabled) {
+            const card = document.createElement('div');
+            card.classList.add('gtacard');
+
+            const img = document.createElement('img');
+            img.src = car.photo;
+            img.alt = car.name;
+
+            const textContainer = document.createElement('div');
+            textContainer.classList.add('text-container');
+
+            const nameText = document.createElement('p');
+            nameText.textContent = car.name;
+
+            const priceText = document.createElement('p');
+            priceText.textContent = `$${car.price}`;
+
+            textContainer.appendChild(nameText);
+            textContainer.appendChild(priceText);
+
+            card.appendChild(img);
+            card.appendChild(textContainer);
+
+            allCardsContainer.appendChild(card);
+
+            card.addEventListener('click', (event) => {
+                event.preventDefault();
+                console.log('Clicked on car card:', car.id);
+                window.location.href = `inspect.html?id=${car.id}`;
+            });
+        }
+    });
+}
+
 document.addEventListener('DOMContentLoaded', function () {
-    let carsData = JSON.parse(localStorage.getItem('carsData'));
-
-    function renderCards(data) {
-        const allCardsContainer = document.getElementById('allCards');
-        allCardsContainer.innerHTML = '';
-        data.forEach(car => {
-            if (car.name && car.price && car.photo && !car.disabled) {
-                const card = document.createElement('div');
-                card.classList.add('gtacard');
-
-                const img = document.createElement('img');
-                img.src = car.photo;
-                img.alt = car.name;
-
-                const textContainer = document.createElement('div');
-                textContainer.classList.add('text-container');
-
-                const nameText = document.createElement('p');
-                nameText.textContent = car.name;
-
-                const priceText = document.createElement('p');
-                priceText.textContent = `$${car.price}`;
-
-                textContainer.appendChild(nameText);
-                textContainer.appendChild(priceText);
-
-                card.appendChild(img);
-                card.appendChild(textContainer);
-
-                allCardsContainer.appendChild(card);
-
-                card.addEventListener('click', (event) => {
-                    event.preventDefault();
-                    console.log('Clicked on car card:', car.id);
-                    window.location.href = `inspect.html?id=${car.id}`;
-                });
-            }
-        });
-    }
+    let carsData = JSON.parse(localStorage.getItem('carsData')) || [];
 
     if (!carsData) {
+        console.log('No cars data found in local storage. Fetching from external source...');
         fetch('gta.json')
             .then(response => {
                 if (!response.ok) {
@@ -54,8 +55,11 @@ document.addEventListener('DOMContentLoaded', function () {
             })
             .catch(error => console.error('Error fetching data:', error));
     } else {
+        console.log('Cars data found in local storage. Rendering...');
         renderCards(carsData);
     }
+
+                                    
 
     const buttons = document.querySelectorAll('.button');
     buttons.forEach((button, index) => {
@@ -68,10 +72,10 @@ document.addEventListener('DOMContentLoaded', function () {
                     renderCards(carsData.filter(car => car.class === 'featured'));
                     break;
                 case 2:
-                    renderCards(carsData.filter(car => car.doors === '2'));
+                    renderCards(carsData.filter(car => car.doors === 2));
                     break;
                 case 3:
-                    renderCards(carsData.filter(car => car.doors === '4'));
+                    renderCards(carsData.filter(car => car.doors === 4));
                     break;
                 case 4:
                     renderCards(carsData.filter(car => car.class === 'Motorcycles'));
@@ -113,5 +117,13 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('highToLowBtn').addEventListener('click', () => {
         carsData.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
         renderCards(carsData);
-    }); 
+    });
+
+    // Add a storage event listener to update the carsData when it changes
+    window.addEventListener('storage', function (event) {
+        if (event.key === 'carsData') {
+            carsData = JSON.parse(localStorage.getItem('carsData'));
+            renderCards(carsData);
+        }
+    });
 });

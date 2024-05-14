@@ -118,3 +118,13 @@ body {
     border-radius: 5px;
     margin: 2px;
 }
+
+.restore-all-button {
+    background-color: red;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 2px;
+}
