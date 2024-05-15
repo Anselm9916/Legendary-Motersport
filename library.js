@@ -39,7 +39,7 @@ function renderCards(data) {
 document.addEventListener('DOMContentLoaded', function () {
     let carsData = JSON.parse(localStorage.getItem('carsData')) || [];
 
-    if (!carsData) {
+    if (!carsData || carsData.length === 0) {
         console.log('No cars data found in local storage. Fetching from external source...');
         fetch('gta.json')
             .then(response => {
@@ -59,8 +59,6 @@ document.addEventListener('DOMContentLoaded', function () {
         renderCards(carsData);
     }
 
-                                    
-
     const buttons = document.querySelectorAll('.button');
     buttons.forEach((button, index) => {
         button.addEventListener('click', () => {
@@ -72,10 +70,10 @@ document.addEventListener('DOMContentLoaded', function () {
                     renderCards(carsData.filter(car => car.class === 'featured'));
                     break;
                 case 2:
-                    renderCards(carsData.filter(car => car.doors === 2));
+                    renderCards(carsData.filter(car => car.doors === "2")); // Ensure correct comparison
                     break;
                 case 3:
-                    renderCards(carsData.filter(car => car.doors === 4));
+                    renderCards(carsData.filter(car => car.doors === "4")); // Ensure correct comparison
                     break;
                 case 4:
                     renderCards(carsData.filter(car => car.class === 'Motorcycles'));
@@ -88,6 +86,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     });
+
 
     function updateBookmarkBadge() {
         const bookmarkedCars = JSON.parse(localStorage.getItem('bookmarkedCars')) || [];
