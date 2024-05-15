@@ -99,12 +99,16 @@ document.addEventListener('DOMContentLoaded', function () {
     updateBookmarkBadge();
 
     displayBookmarkedCars();
-    function clearBookmarks() {
+
+    function addToOrderedCars() {
+        const bookmarkedCars = JSON.parse(localStorage.getItem('bookmarkedCars')) || [];
+        const orderedCars = JSON.parse(localStorage.getItem('orderedCars')) || [];
+        localStorage.setItem('orderedCars', JSON.stringify(orderedCars.concat(bookmarkedCars)));
         localStorage.removeItem('bookmarkedCars');
         displayBookmarkedCars();
         updateBookmarkBadge();
     }
 
     const buyButton = document.getElementById('buy-button');
-    buyButton.addEventListener('click', clearBookmarks);
+    buyButton.addEventListener('click', addToOrderedCars);
 });

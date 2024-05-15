@@ -1,0 +1,23 @@
+body {
+    margin: 0;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+
+}
+
+.top-bar {
+    background-color: white;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.top-bar-divider {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+
+.logo {
+    width: 450px;
+}

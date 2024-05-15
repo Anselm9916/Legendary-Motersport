@@ -1,0 +1,65 @@
+body {
+    margin: 0;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+
+}
+
+.top-bar {
+    background-color: white;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.top-bar-divider {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+
+.logo {
+    width: 450px;
+}
+
+.gtacard img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.car-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+.car-photo {
+    width: 200px; /* Adjust as needed */
+    height: auto;
+    margin-right: 16px;
+}
+
+.car-info {
+    flex-grow: 1;
+    position: relative; /* Position relative for absolute positioning of dropdown content */
+}
+
+.car-name {
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.car-price {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.car-doors, .car-class {
+    font-size: 16px;
+    margin-bottom: 8px;
+}

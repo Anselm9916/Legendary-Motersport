@@ -126,4 +126,9 @@ document.addEventListener('DOMContentLoaded', function () {
             renderCards(carsData);
         }
     });
+
+    window.addEventListener('carsDataUpdated', function () {
+        carsData = JSON.parse(localStorage.getItem('carsData')) || [];
+        renderCards(carsData);
+    });
 });

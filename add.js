@@ -34,6 +34,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         
         window.dispatchEvent(new StorageEvent('storage', { key: 'carsData' }));
+// Dispatch a custom event to notify other parts of the application that carsData has been updated
+window.dispatchEvent(new Event('carsDataUpdated'));
 
         
         window.location.href = 'library.html';

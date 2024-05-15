@@ -134,4 +134,5 @@ document.addEventListener('DOMContentLoaded', function () {
             renderCarsData();
         }
     });
+    window.dispatchEvent(new Event('carsDataUpdated'));
 });
