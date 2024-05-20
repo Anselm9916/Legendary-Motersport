@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 bookmarkedCars.splice(clickedIndex, 1);
                 localStorage.setItem('bookmarkedCars', JSON.stringify(bookmarkedCars));
                 displayBookmarkedCars();
-                updateBookmarkBadge(); // Update badge count after removing a car
+                updateBookmarkBadge();
             });
             carInfo.appendChild(removeButton);
 
@@ -56,14 +56,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
             bookmarkList.appendChild(carItem);
 
-            // Add car price to total price
+            
             totalPrice += parseFloat(car.price);
         });
 
-        // Display total price and number of cars
+    
         updateTotalPrice(totalPrice);
         updateNumberOfCars(numberOfCars);
-        // Update the count on the bookmark logo
+    
         updateBookmarkBadge();
     }
 
@@ -80,12 +80,12 @@ document.addEventListener('DOMContentLoaded', function () {
     function updateBookmarkBadge() {
         const bookmarkedCars = JSON.parse(localStorage.getItem('bookmarkedCars')) || [];
         const bolletjewinkelwagen = document.querySelector('.topright');
-        let redDot = bolletjewinkelwagen.querySelector('.red-dot'); // Use let instead of const
+        let redDot = bolletjewinkelwagen.querySelector('.red-dot');
         if (!redDot) {
             const redDotElement = document.createElement('div');
             redDotElement.classList.add('red-dot');
             bolletjewinkelwagen.appendChild(redDotElement);
-            redDot = redDotElement; // Update the redDot variable
+            redDot = redDotElement;
         }
         if (bookmarkedCars.length > 0) {
             redDot.textContent = bookmarkedCars.length > 99 ? '99+' : bookmarkedCars.length;
@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Call updateBookmarkBadge initially to ensure badge count is updated on page load
+
     updateBookmarkBadge();
 
     displayBookmarkedCars();

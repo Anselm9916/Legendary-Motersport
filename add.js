@@ -7,11 +7,11 @@ document.addEventListener('DOMContentLoaded', function () {
         
         const name = document.getElementById('name').value;
         const price = document.getElementById('price').value;
-        const image = document.getElementById('image').value;
+        const photo = document.getElementById('image').value;
         const doors = document.getElementById('doors').value;
         const classValue = document.getElementById('class').value;
 
-
+    
         let carsData = JSON.parse(localStorage.getItem('carsData')) || [];
         let lastId = 0;
         if (carsData.length > 0) {
@@ -23,10 +23,10 @@ document.addEventListener('DOMContentLoaded', function () {
             id: lastId + 1,
             name: name,
             price: parseFloat(price),
-            image: image,
+            photo: photo,
             doors: doors,
             class: classValue,
-            disabled: false 
+            disabled: false
         };
 
         carsData.push(newItem);
@@ -34,8 +34,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         
         window.dispatchEvent(new StorageEvent('storage', { key: 'carsData' }));
-// Dispatch a custom event to notify other parts of the application that carsData has been updated
-window.dispatchEvent(new Event('carsDataUpdated'));
+
+        window.dispatchEvent(new Event('carsDataUpdated'));
 
         
         window.location.href = 'library.html';

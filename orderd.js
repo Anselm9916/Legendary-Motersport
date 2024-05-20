@@ -30,10 +30,10 @@ document.addEventListener('DOMContentLoaded', function () {
             completeOrderButton.textContent = 'Complete Order';
             completeOrderButton.classList.add('complete-order-button');
             completeOrderButton.addEventListener('click', function() {
-                // Remove the car from orderedCars
+                
                 orderedCars.splice(index, 1);
                 localStorage.setItem('orderedCars', JSON.stringify(orderedCars));
-                // Re-display the ordered cars
+                
                 displayOrderedCars();
             });
             carInfo.appendChild(completeOrderButton);

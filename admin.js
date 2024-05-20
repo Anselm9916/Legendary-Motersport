@@ -104,13 +104,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 existingData = existingData.concat(newData);
 
-                // Store the updated data back into local storage
+            
                 localStorage.setItem("carsData", JSON.stringify(existingData));
 
-                // Render the updated data
+        
                 renderCarsData();
 
-                // Reload the page
                 location.reload();
             })
             .catch(error => {
@@ -127,7 +126,7 @@ document.addEventListener('DOMContentLoaded', function () {
         console.error('No cars data found in local storage.');
     }
 
-    // Add a storage event listener to update the carsData when it changes
+    
     window.addEventListener('storage', function (event) {
         if (event.key === 'carsData') {
             carsData = JSON.parse(localStorage.getItem('carsData'));

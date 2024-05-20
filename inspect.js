@@ -27,10 +27,10 @@ document.addEventListener('DOMContentLoaded', function () {
         let bookmarkedCars = JSON.parse(localStorage.getItem('bookmarkedCars')) || [];
         bookmarkedCars.push(car);
         localStorage.setItem('bookmarkedCars', JSON.stringify(bookmarkedCars));
-        updateBookmarkBadge(); // Update the badge count after bookmarking
+        updateBookmarkBadge();
     });
 
-    // Check if car has logo and display it
+    
     if (car.logo) {
         document.querySelector('.left-card').prepend(carLogo);
     }
@@ -38,12 +38,12 @@ document.addEventListener('DOMContentLoaded', function () {
     function updateBookmarkBadge() {
         const bookmarkedCars = JSON.parse(localStorage.getItem('bookmarkedCars')) || [];
         const bolletjewinkelwagen = document.querySelector('.topright');
-        let redDot = bolletjewinkelwagen.querySelector('.red-dot'); // Use let instead of const
+        let redDot = bolletjewinkelwagen.querySelector('.red-dot'); 
         if (!redDot) {
             const redDotElement = document.createElement('div');
             redDotElement.classList.add('red-dot');
             bolletjewinkelwagen.appendChild(redDotElement);
-            redDot = redDotElement; // Update the redDot variable
+            redDot = redDotElement;
         }
         if (bookmarkedCars.length > 0) {
             redDot.textContent = bookmarkedCars.length > 99 ? '99+' : bookmarkedCars.length;
@@ -53,6 +53,5 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Call updateBookmarkBadge initially to ensure badge count is updated on page load
     updateBookmarkBadge();
 });

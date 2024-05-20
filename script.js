@@ -27,16 +27,16 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .catch(error => console.error('Error fetching cars:', error));
 
-    // Function to update the badge count based on the number of bookmarked cars
+    
     function updateBookmarkBadge() {
         const bookmarkedCars = JSON.parse(localStorage.getItem('bookmarkedCars')) || [];
         const bolletjewinkelwagen = document.querySelector('.topright');
-        let redDot = bolletjewinkelwagen.querySelector('.red-dot'); // Use let instead of const
+        let redDot = bolletjewinkelwagen.querySelector('.red-dot'); 
         if (!redDot) {
             const redDotElement = document.createElement('div');
             redDotElement.classList.add('red-dot');
             bolletjewinkelwagen.appendChild(redDotElement);
-            redDot = redDotElement; // Update the redDot variable
+            redDot = redDotElement; 
         }
         if (bookmarkedCars.length > 0) {
             redDot.textContent = bookmarkedCars.length > 99 ? '99+' : bookmarkedCars.length;
