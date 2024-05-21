@@ -111,10 +111,4 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const buyButton = document.getElementById('buy-button');
     buyButton.addEventListener('click', addToOrderedCars);
-
-    document.getElementById('buy-button').addEventListener('click', function() {
-        window.location.href = 'order.html';
-    });
-    
-    
 });

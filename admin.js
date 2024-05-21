@@ -104,10 +104,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 existingData = existingData.concat(newData);
 
-            
                 localStorage.setItem("carsData", JSON.stringify(existingData));
 
-        
                 renderCarsData();
 
                 location.reload();

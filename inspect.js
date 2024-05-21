@@ -53,5 +53,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    // Call updateBookmarkBadge to ensure the red dot reflects the bookmarked cars on page load
     updateBookmarkBadge();
 });
