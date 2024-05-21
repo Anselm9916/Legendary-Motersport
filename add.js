@@ -4,21 +4,18 @@ document.addEventListener('DOMContentLoaded', function () {
     addItemForm.addEventListener('submit', function (event) {
         event.preventDefault();
 
-        
         const name = document.getElementById('name').value;
         const price = document.getElementById('price').value;
         const photo = document.getElementById('image').value;
         const doors = document.getElementById('doors').value;
         const classValue = document.getElementById('class').value;
 
-    
         let carsData = JSON.parse(localStorage.getItem('carsData')) || [];
         let lastId = 0;
         if (carsData.length > 0) {
             lastId = carsData[carsData.length - 1].id;
         }
 
-        
         const newItem = {
             id: lastId + 1,
             name: name,
@@ -26,18 +23,16 @@ document.addEventListener('DOMContentLoaded', function () {
             photo: photo,
             doors: doors,
             class: classValue,
-            disabled: false
+            disabled: false,
         };
 
         carsData.push(newItem);
         localStorage.setItem('carsData', JSON.stringify(carsData));
 
-        
         window.dispatchEvent(new StorageEvent('storage', { key: 'carsData' }));
 
         window.dispatchEvent(new Event('carsDataUpdated'));
 
-        
         window.location.href = 'library.html';
     });
 });

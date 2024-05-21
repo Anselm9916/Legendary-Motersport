@@ -37,14 +37,16 @@ body {
 }
 
 .car-photo {
-    width: 200px; /* Adjust as needed */
+    width: 200px;
+    /* Adjust as needed */
     height: auto;
     margin-right: 16px;
 }
 
 .car-info {
     flex-grow: 1;
-    position: relative; /* Position relative for absolute positioning of dropdown content */
+    position: relative;
+    /* Position relative for absolute positioning of dropdown content */
 }
 
 .car-name {
@@ -57,15 +59,16 @@ body {
     margin-bottom: 8px;
 }
 
-.car-doors, .car-class {
+.car-doors,
+.car-class {
     font-size: 16px;
     margin-bottom: 8px;
 }
 
 
-.edit-button:hover{
+.edit-button:hover {
     background-color: rgb(161, 9, 9);
-    
+
 }
 
 .dropdown-content {
@@ -75,7 +78,7 @@ body {
     bottom: 0px;
     background-color: #f1f1f1;
     min-width: 160px;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
 
@@ -94,7 +97,7 @@ body {
 }
 
 .enable-disable-button {
-   
+
     background-color: red;
     color: white;
     padding: 10px;
@@ -104,12 +107,12 @@ body {
 }
 
 .enable-disable-button:hover {
-    
+
     background-color: rgb(161, 9, 9);
 }
 
 .edit-button {
-    
+
     background-color: red;
     color: white;
     padding: 10px;
@@ -119,32 +122,31 @@ body {
     margin: 2px;
 }
 
-.restore-all-button {
-    background-color: red;
-    color: white;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    margin: 2px;
-}
 
 .buttons {
     display: flex;
-    justify-content: center;
     margin-top: 20px;
     position: relative;
     bottom: 10px;
-    right: 850px;
-    
 }
 
-#restore-all-button, #addpage, #orderpage {
+#restore-all-button {
     background-color: red;
     color: white;
     padding: 10px;
     border: none;
     cursor: pointer;
     border-radius: 5px;
-    margin: 2px;
+    margin: 5px;
+}
+
+.button-link {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    background-color: red;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 4px;
 }
