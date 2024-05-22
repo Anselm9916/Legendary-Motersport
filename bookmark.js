@@ -100,10 +100,18 @@ document.addEventListener('DOMContentLoaded', function () {
     function addToOrderedCars() {
         const bookmarkedCars = JSON.parse(localStorage.getItem('bookmarkedCars')) || [];
         const orderedCars = JSON.parse(localStorage.getItem('orderedCars')) || [];
-        localStorage.setItem('orderedCars', JSON.stringify(orderedCars.concat(bookmarkedCars)));
+        
+        // Add order number to each car
+        const orderNumber = new Date().getTime(); // Unique order number based on timestamp
+        const carsWithOrderNumber = bookmarkedCars.map(car => ({
+            ...car,
+            orderNumber: orderNumber
+        }));
+
+        localStorage.setItem('orderedCars', JSON.stringify(orderedCars.concat(carsWithOrderNumber)));
         localStorage.removeItem('bookmarkedCars');
-        displayBookmarkedCars();
-        updateBookmarkBadge();
+        
+        window.location.href = 'order.html'; // Redirect to order page after ordering
     }
 
     const buyButton = document.getElementById('buy-button');

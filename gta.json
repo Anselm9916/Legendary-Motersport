@@ -72,5 +72,23 @@
         "doors": "1",
         "class": "Motorcycles",
         "disabled": false
+    },
+    {
+        "id": 9,
+        "name": "Gallivanter Baller ST-D",
+        "price": 1715000,
+        "photo": "jsonfotos/id9.webp",
+        "doors": "4",
+        "class": "featured",
+        "disabled": false
+    },
+    {
+        "id": 10,
+        "name": "Benefactor BR8",
+        "price": 3400000,
+        "photo": "jsonfotos/id10.webp",
+        "doors": "1",
+        "class": "special",
+        "disabled": false
     }
 ]
