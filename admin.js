@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     let carsData = JSON.parse(localStorage.getItem('carsData')) || [];
-
+    
     function renderCarsData() {
         const carDetailsContainer = document.querySelector('.car-details-container');
         carDetailsContainer.innerHTML = '';
