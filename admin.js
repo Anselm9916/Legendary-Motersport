@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 renderCarsData();
 
-                location.reload();
+                window.location.reload();
             })
             .catch(error => {
                 console.error('Error fetching data:', error);
