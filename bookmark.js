@@ -44,7 +44,6 @@ document.addEventListener('DOMContentLoaded', function () {
             removeButton.dataset.index = index;
             removeButton.addEventListener('click', function () {
                 const clickedIndex = parseInt(this.dataset.index);
-                let bookmarkedCars = JSON.parse(localStorage.getItem('bookmarkedCars')) || [];
                 bookmarkedCars.splice(clickedIndex, 1);
                 localStorage.setItem('bookmarkedCars', JSON.stringify(bookmarkedCars));
                 displayBookmarkedCars();
