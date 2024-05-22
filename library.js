@@ -59,8 +59,6 @@ document.addEventListener('DOMContentLoaded', function () {
         renderCards(carsData);
     }
 
-    
-    
     const buttons = document.querySelectorAll('.button');
     buttons.forEach((button, index) => {
         button.addEventListener('click', () => {

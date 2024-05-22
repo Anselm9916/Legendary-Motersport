@@ -55,12 +55,10 @@ document.addEventListener('DOMContentLoaded', function () {
             carItem.appendChild(carInfo);
 
             bookmarkList.appendChild(carItem);
-
             
             totalPrice += parseFloat(car.price);
         });
 
-    
         updateTotalPrice(totalPrice);
         updateNumberOfCars(numberOfCars);
     
@@ -94,7 +92,6 @@ document.addEventListener('DOMContentLoaded', function () {
             redDot.style.display = 'none';
         }
     }
-
 
     updateBookmarkBadge();
 

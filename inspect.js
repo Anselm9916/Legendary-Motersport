@@ -30,7 +30,6 @@ document.addEventListener('DOMContentLoaded', function () {
         updateBookmarkBadge();
     });
 
-    
     if (car.logo) {
         document.querySelector('.left-card').prepend(carLogo);
     }
@@ -53,6 +52,5 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Call updateBookmarkBadge to ensure the red dot reflects the bookmarked cars on page load
     updateBookmarkBadge();
 });

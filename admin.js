@@ -103,7 +103,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 let existingData = JSON.parse(localStorage.getItem('carsData')) || [];
 
                 existingData = existingData.concat(newData);
-
                 localStorage.setItem("carsData", JSON.stringify(existingData));
 
                 renderCarsData();
