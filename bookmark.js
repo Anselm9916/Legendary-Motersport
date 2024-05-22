@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const bookmarkList = document.getElementById('bookmark-list');
     const bookmarkLogo = document.querySelector('.topright img');
 
@@ -39,12 +39,12 @@ document.addEventListener('DOMContentLoaded', function() {
             carInfo.appendChild(carClass);
 
             const removeButton = document.createElement('div');
-            removeButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;"><path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path></svg>';
+            removeButton.innerHTML = '<i class="bx bx-x bx-lg"></i>';
             removeButton.classList.add('remove-button');
             removeButton.dataset.index = index;
-            removeButton.addEventListener('click', function() {
+            removeButton.addEventListener('click', function () {
                 const clickedIndex = parseInt(this.dataset.index);
-                const bookmarkedCars = JSON.parse(localStorage.getItem('bookmarkedCars')) || [];
+                let bookmarkedCars = JSON.parse(localStorage.getItem('bookmarkedCars')) || [];
                 bookmarkedCars.splice(clickedIndex, 1);
                 localStorage.setItem('bookmarkedCars', JSON.stringify(bookmarkedCars));
                 displayBookmarkedCars();
@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const orderNumber = new Date().getTime(); // Unique order number based on timestamp
         const carsWithOrderNumber = bookmarkedCars.map(car => ({
             ...car,
-            orderNumber: orderNumber
+            orderNumber: orderNumber,
         }));
 
         localStorage.setItem('orderedCars', JSON.stringify(orderedCars.concat(carsWithOrderNumber)));
