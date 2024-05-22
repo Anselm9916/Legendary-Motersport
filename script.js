@@ -27,11 +27,10 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .catch(error => console.error('Error fetching cars:', error));
 
-    
     function updateBookmarkBadge() {
         const bookmarkedCars = JSON.parse(localStorage.getItem('bookmarkedCars')) || [];
         const bolletjewinkelwagen = document.querySelector('.topright');
-        let redDot = bolletjewinkelwagen.querySelector('.red-dot'); 
+        let redDot = bolletjewinkelwagen.querySelector('.red-dot');
         if (!redDot) {
             const redDotElement = document.createElement('div');
             redDotElement.classList.add('red-dot');

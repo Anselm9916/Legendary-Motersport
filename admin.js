@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     let carsData = JSON.parse(localStorage.getItem('carsData')) || [];
-    
+
     function renderCarsData() {
         const carDetailsContainer = document.querySelector('.car-details-container');
         carDetailsContainer.innerHTML = '';
@@ -123,7 +123,6 @@ document.addEventListener('DOMContentLoaded', function () {
         console.error('No cars data found in local storage.');
     }
 
-    
     window.addEventListener('storage', function (event) {
         if (event.key === 'carsData') {
             carsData = JSON.parse(localStorage.getItem('carsData'));
