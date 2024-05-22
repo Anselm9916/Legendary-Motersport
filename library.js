@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     function renderCards(data) {
         const allCardsContainer = document.getElementById('allCards');
         allCardsContainer.innerHTML = '';

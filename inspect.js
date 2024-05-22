@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const urlParams = new URLSearchParams(window.location.search);
     const carId = urlParams.get('id');
 
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const bookmarkButton = document.getElementById('car-price-button');
     bookmarkButton.textContent = `Bookmark ${foundCar.name}`;
-    bookmarkButton.addEventListener('click', function() {
+    bookmarkButton.addEventListener('click', function () {
         let bookmarkedCars = JSON.parse(localStorage.getItem('bookmarkedCars')) || [];
         bookmarkedCars.push(foundCar);
         localStorage.setItem('bookmarkedCars', JSON.stringify(bookmarkedCars));
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function updateBookmarkBadge() {
         const bookmarkedCars = JSON.parse(localStorage.getItem('bookmarkedCars')) || [];
         const bolletjewinkelwagen = document.querySelector('.topright');
-        let redDot = bolletjewinkelwagen.querySelector('.red-dot'); 
+        let redDot = bolletjewinkelwagen.querySelector('.red-dot');
         if (!redDot) {
             const redDotElement = document.createElement('div');
             redDotElement.classList.add('red-dot');
