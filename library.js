@@ -1,9 +1,9 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
     function renderCards(data) {
         const allCardsContainer = document.getElementById('allCards');
         allCardsContainer.innerHTML = '';
         data.forEach(car => {
-            if (car.name && car.price && car.photo && !car.disabled) { 
+            if (car.name && car.price && car.photo && !car.disabled) {
                 const card = document.createElement('div');
                 card.classList.add('gtacard');
 
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const buttons = document.querySelectorAll('.button');
     buttons.forEach((button, index) => {
         button.addEventListener('click', () => {
-            switch(index) {
+            switch (index) {
                 case 0:
                     renderCards(carsData);
                     break;
@@ -115,5 +115,5 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('highToLowBtn').addEventListener('click', () => {
         carsData.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
         renderCards(carsData);
-    }); 
+    });
 });

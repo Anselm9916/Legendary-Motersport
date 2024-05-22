@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const completeOrderButton = document.createElement('button');
             completeOrderButton.textContent = 'Complete Order';
             completeOrderButton.classList.add('complete-order-button');
-            completeOrderButton.addEventListener('click', function() {
+            completeOrderButton.addEventListener('click', function () {
                 const remainingCars = orderedCars.filter(car => car.orderNumber !== parseInt(orderNumber));
                 localStorage.setItem('orderedCars', JSON.stringify(remainingCars));
                 displayOrderedCars();

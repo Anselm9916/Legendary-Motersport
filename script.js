@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const redDotElement = document.createElement('div');
             redDotElement.classList.add('red-dot');
             bolletjewinkelwagen.appendChild(redDotElement);
-            redDot = redDotElement; 
+            redDot = redDotElement;
         }
         if (bookmarkedCars.length > 0) {
             redDot.textContent = bookmarkedCars.length > 99 ? '99+' : bookmarkedCars.length;

@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
     const bookmarkList = document.getElementById('bookmark-list');
     const bookmarkLogo = document.querySelector('.topright img');
 
@@ -55,13 +55,13 @@ document.addEventListener('DOMContentLoaded', function () {
             carItem.appendChild(carInfo);
 
             bookmarkList.appendChild(carItem);
-            
+
             totalPrice += parseFloat(car.price);
         });
 
         updateTotalPrice(totalPrice);
         updateNumberOfCars(numberOfCars);
-    
+
         updateBookmarkBadge();
     }
 
@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function addToOrderedCars() {
         const bookmarkedCars = JSON.parse(localStorage.getItem('bookmarkedCars')) || [];
         const orderedCars = JSON.parse(localStorage.getItem('orderedCars')) || [];
-        
+
         // Add order number to each car
         const orderNumber = new Date().getTime(); // Unique order number based on timestamp
         const carsWithOrderNumber = bookmarkedCars.map(car => ({
@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         localStorage.setItem('orderedCars', JSON.stringify(orderedCars.concat(carsWithOrderNumber)));
         localStorage.removeItem('bookmarkedCars');
-        
+
         window.location.href = 'order.html'; // Redirect to order page after ordering
     }
 
