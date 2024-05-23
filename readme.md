@@ -27,4 +27,3 @@ Aantal gebookmarkte auto's bijhouden: Er is een badge in de rechterbovenhoek die
 
 Lokale Opslag
 Gegevens opslaan in Local Storage: Alle gegevens van de auto's en je bookmarks worden opgeslagen in de lokale opslag van je browser. Dit betekent dat je gegevens bewaard blijven, zelfs als je de pagina vernieuwt of je browser sluit.
-l
