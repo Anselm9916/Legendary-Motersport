@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     let carsData = JSON.parse(localStorage.getItem('carsData'));
+    let currentFilteredCars = []; // Track the current filtered cars
 
     if (!carsData) {
         console.log('No cars data found in local storage. Fetching from external source...');
@@ -51,11 +52,13 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(data => {
                 localStorage.setItem('carsData', JSON.stringify(data));
                 carsData = data;
+                currentFilteredCars = carsData;
                 renderCards(carsData);
             })
             .catch(error => console.error('Error fetching data:', error));
     } else {
         console.log('Cars data found in local storage. Rendering...');
+        currentFilteredCars = carsData;
         renderCards(carsData);
     }
 
@@ -64,22 +67,28 @@ document.addEventListener('DOMContentLoaded', function () {
         button.addEventListener('click', () => {
             switch (index) {
                 case 0:
+                    currentFilteredCars = carsData;
                     renderCards(carsData);
                     break;
                 case 1:
-                    renderCards(carsData.filter(car => car.class === 'featured'));
+                    currentFilteredCars = carsData.filter(car => car.class === 'featured');
+                    renderCards(currentFilteredCars);
                     break;
                 case 2:
-                    renderCards(carsData.filter(car => car.doors === '2'));
+                    currentFilteredCars = carsData.filter(car => car.doors === '2');
+                    renderCards(currentFilteredCars);
                     break;
                 case 3:
-                    renderCards(carsData.filter(car => car.doors === '4'));
+                    currentFilteredCars = carsData.filter(car => car.doors === '4');
+                    renderCards(currentFilteredCars);
                     break;
                 case 4:
-                    renderCards(carsData.filter(car => car.class === 'Motorcycles'));
+                    currentFilteredCars = carsData.filter(car => car.class === 'Motorcycles');
+                    renderCards(currentFilteredCars);
                     break;
                 case 5:
-                    renderCards(carsData.filter(car => car.class === 'special'));
+                    currentFilteredCars = carsData.filter(car => car.class === 'special');
+                    renderCards(currentFilteredCars);
                     break;
                 default:
                     break;
@@ -108,12 +117,12 @@ document.addEventListener('DOMContentLoaded', function () {
     updateBookmarkBadge();
 
     document.getElementById('lowToHighBtn').addEventListener('click', () => {
-        carsData.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
-        renderCards(carsData);
+        currentFilteredCars.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
+        renderCards(currentFilteredCars);
     });
 
     document.getElementById('highToLowBtn').addEventListener('click', () => {
-        carsData.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
-        renderCards(carsData);
+        currentFilteredCars.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
+        renderCards(currentFilteredCars);
     });
 });
